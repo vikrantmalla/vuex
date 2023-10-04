@@ -1,20 +1,42 @@
-<script setup>
-</script>
-
 <template>
-  <header>
+  <main class="container">
     <div>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     </div>
-  </header>
-
+    <div class="counter">{{ $store.state.counter }}</div>
+    <div class="btn-container">
+      <button @click="$store.commit('addToCounter')">Add</button>
+      <button @click="$store.commit('subToCounter')">Sub</button>
+    </div>
+  </main>
   <RouterView />
 </template>
 
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.counter {
+  color: black;
+  font-size: 50px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn-container button {
+  padding: 1rem 3rem;
 }
 
 .logo {
